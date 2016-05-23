@@ -10,14 +10,8 @@
 	<script>
 
 
-var text = '{"employees":[' +
-'{"name":"John","age":"25" },' +
-'{"name":"Anna","age":"24" },' +
-'{"name":"Peter","age":"36" }]}';
 
-	var obj = JSON.parse(text);
-
-	d3.json(obj, function(data) {//(path,)
+	d3.json("https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5", function(data) {//(path,)
 		
  
 		var canvas = d3.select("body").append("svg")
@@ -28,7 +22,7 @@ var text = '{"employees":[' +
 			.data(data)
 			.enter()
 				.append("rect")
-				.attr("width",function (d) { return d.age *10; })
+				.attr("width",function (d) { return d.sale *10; })
 				.attr("height",48)
 				.attr("y",function (d,i) {return i*50})  
 				.attr("fill","blue")							
