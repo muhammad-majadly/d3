@@ -9,8 +9,17 @@
 
 	<script>
 
-	d3.json("https://github.com/muhammad-majadly/d3/blob/gh-pages/mydata.json", function(data) {//(path,)
+
+var text = '{"employees":[' +
+'{"name":"John","age":"25" },' +
+'{"name":"Anna","age":"24" },' +
+'{"name":"Peter","age":"36" }]}';
+
+	var obj = JSON.parse(text);
+
+	d3.json(obj, function(data) {//(path,)
 		
+
 		var canvas = d3.select("body").append("svg")
 			.attr("width",500)
 			.attr("height",500)
