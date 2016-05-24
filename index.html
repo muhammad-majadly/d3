@@ -1,37 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
+
 <head>
-	<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+<title> D3 Arrays </title>
+<script src="http://d3js.org/d3.v3.min.js"> </script>
 </head>
+
 <body>
-	
-		  
 
-	<script>
+<script>
+
+d3.json("mydata.json", function (data) {
+
+	console.log(data); // check the console output to judge if you get the data
 
 
+    var canvas = d3.select("body").append("svg")
+        .attr("width", 500)
+        .attr("height", 500)
 
-	d3.json("mydata.json", function(data) {//(path,)
-		
- 
-		var canvas = d3.select("body").append("svg")
-			.attr("width",500)
-			.attr("height",500)
+    canvas.selectAll("rect")
+        .data(data)
+        .enter()
+            .append("rect")
+            .attr("width", function (d) { return d.age * 10;})
+            .attr("height", 48)
+            .attr("y", function (d, i) { return i * 48; })
+            .attr("fill", "blue")
+})
 
-		canvas.selectAll("rect")
-			.data(data)
-			.enter()
-				.append("rect")
-				.attr("width",function (d) {
-				var arr = JSON.parse(d);
-				 return arr.age; })
-				.attr("height",48)
-				.attr("y",function (d,i) {return i*50})  
-				.attr("fill","blue")							
 
-	})
+</script>
 
-	</script>
 </body>
 
 </html>
