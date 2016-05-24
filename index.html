@@ -11,7 +11,7 @@
 
 
 
-	d3.json("https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5", function(data) {//(path,)
+	d3.json("mydata.json", function(data) {//(path,)
 		
  
 		var canvas = d3.select("body").append("svg")
@@ -22,7 +22,7 @@
 			.data(data)
 			.enter()
 				.append("rect")
-				.attr("width",function (d) { return d.sale *10; })
+				.attr("width",function (d) { return d.age; })
 				.attr("height",48)
 				.attr("y",function (d,i) {return i*50})  
 				.attr("fill","blue")							
