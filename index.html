@@ -23,8 +23,8 @@
 			.enter()
 				.append("rect")
 				.attr("width",function (d) {
-				var arr = JSON.parse(d.age);
-				 return arr; })
+				var arr = JSON.parse(d);
+				 return arr.age; })
 				.attr("height",48)
 				.attr("y",function (d,i) {return i*50})  
 				.attr("fill","blue")							
