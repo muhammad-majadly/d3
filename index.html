@@ -86,9 +86,9 @@ var hScale = d3.scale.ordinal()
 
 var yScale = d3.scale.linear()
                      .domain([0, max+5])
-                     .range([h-margin*1.8, 0]);
+                     .range([h-margin, 0]);
         
-var x_axis = d3.svg.axis().scale(hScale).ticks(5);
+var x_axis = d3.svg.axis().scale(hScale).ticks(2);
 
 
        
@@ -151,7 +151,7 @@ svg.selectAll("rect")
    })
    .attr("fill", function(d) {
     debugger;
-     return "rgb("+ (250-(d.value  ))+", 30, 40)";
+     return "rgb("+ (250-(d.value  *2))+", 30, 40)";
    })
    .on('mouseover', tip.show)
   .on('mouseout', tip.hide)
