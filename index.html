@@ -64,7 +64,7 @@ var xAxis = d3.svg.axis()
     .tickFormat(formatDate);
 
 var nest = d3.nest()
-    .key(function(d) { return d.cat; });
+    .key(function(d) { return d.group; });
 
 var stack = d3.layout.stack()
     .values(function(d) { return d.values; })
@@ -80,19 +80,15 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-
-        d3.json("data2.json", function (error,data) {
+      d3.json("data3.json", function (error,data) {
         if(error){
           console.log("Error loading data")
         }
      
-
-
-
-  for (var d in data) {
+  data.forEach(function(d) {
     d.date = parseDate(d.date);
     d.value = +d.value;
-  }
+  });
 
   var dataByGroup = nest.entries(data);
 
@@ -101,29 +97,29 @@ var svg = d3.select("body").append("svg")
   y0.domain(dataByGroup.map(function(d) { return d.key; }));
   y1.domain([0, d3.max(data, function(d) { return d.value; })]).range([y0.rangeBand(), 0]);
 
-  var cat = svg.selectAll(".cat")
+  var group = svg.selectAll(".group")
       .data(dataByGroup)
     .enter().append("g")
-      .attr("class", "cat")
+      .attr("class", "group")
       .attr("transform", function(d) { return "translate(0," + y0(d.key) + ")"; });
 
-  cat.append("text")
+  group.append("text")
       .attr("class", "group-label")
       .attr("x", -6)
       .attr("y", function(d) { return y1(d.values[0].value / 2); })
       .attr("dy", ".35em")
-      .text(function(d) { return "Cat " + d.key; });
+      .text(function(d) { return "Group " + d.key; });
 
-  cat.selectAll("rect")
+  group.selectAll("rect")
       .data(function(d) { return d.values; })
     .enter().append("rect")
-      .style("fill", function(d) { return color(d.cat); })
+      .style("fill", function(d) { return color(d.group); })
       .attr("x", function(d) { return x(d.date); })
       .attr("y", function(d) { return y1(d.value); })
       .attr("width", x.rangeBand())
       .attr("height", function(d) { return y0.rangeBand() - y1(d.value); });
 
-  cat.filter(function(d, i) { return !i; }).append("g")
+  group.filter(function(d, i) { return !i; }).append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + y0.rangeBand() + ")")
       .call(xAxis);
@@ -142,14 +138,14 @@ var svg = d3.select("body").append("svg")
 
   function transitionMultiples() {
     var t = svg.transition().duration(750),
-        g = t.selectAll(".cat").attr("transform", function(d) { return "translate(0," + y0(d.key) + ")"; });
+        g = t.selectAll(".group").attr("transform", function(d) { return "translate(0," + y0(d.key) + ")"; });
     g.selectAll("rect").attr("y", function(d) { return y1(d.value); });
     g.select(".group-label").attr("y", function(d) { return y1(d.values[0].value / 2); })
   }
 
   function transitionStacked() {
     var t = svg.transition().duration(750),
-        g = t.selectAll(".cat").attr("transform", "translate(0," + y0(y0.domain()[0]) + ")");
+        g = t.selectAll(".group").attr("transform", "translate(0," + y0(y0.domain()[0]) + ")");
     g.selectAll("rect").attr("y", function(d) { return y1(d.value + d.valueOffset); });
     g.select(".group-label").attr("y", function(d) { return y1(d.values[0].value / 2 + d.values[0].valueOffset); })
   }
