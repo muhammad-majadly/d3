@@ -18,7 +18,7 @@
 var w = 1400;
 var h = 750;
 var margin = 20;
-      d3.json("data111.json", function (error,data) {
+      d3.json("data2.json", function (error,data) {
         if(error){
           console.log("Error loading data")
         }
@@ -30,8 +30,8 @@ var data = data;
 
  //make Key from 1908 to 2009 -- for now it's till 1949
 var dataset = [];
-var start = 1908;
-var end = 2009
+var start = 2015;
+var end = 2016
 var len = end-start;
 for (var i = start; i <= end; i++) {
     dataset.push({
@@ -46,12 +46,12 @@ for (var i = 0; i < data.Date.length; i++) {
  
 var year = data.Date[i].substr(data.Date[i].length - 4);
 var IntYear = parseInt(year);
-var aboard = data.Aboard[i];
-var IntAboard = parseInt(aboard);
+//var aboard = data.Aboard[i];
+//var IntAboard = parseInt(aboard);
 var fatalities = data.Fatalities[i];
 var IntFatalities = parseInt(fatalities);
 dataset[end-IntYear].value +=1;
-dataset[end-IntYear].aboard +=IntAboard;
+//dataset[end-IntYear].aboard +=IntAboard;
 dataset[end-IntYear].fatalities +=IntFatalities;
 
 }
