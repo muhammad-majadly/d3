@@ -92,7 +92,7 @@ var svg = d3.select("body").append("svg")
   for (var d in data) {
     d.date = parseDate(d.date);
     d.value = +d.value;
-  });
+  }
 
   var dataByGroup = nest.entries(data);
 
