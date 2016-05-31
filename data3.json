@@ -1,26 +1,26 @@
 [
  {
-   "group":a1,
+   "group":1,
    "date":"2008-01",
    "value":10
  },
  {
-   "group":a1,
+   "group":1,
    "date":"2008-04",
    "value":8
  },
  {
-   "group":a1,
+   "group":1,
    "date":"2008-07",
    "value":14
  },
  {
-   "group":h1,
+   "group":1,
    "date":"2008-10",
    "value":9
  },
  {
-   "group":h1,
+   "group":1,
    "date":"2009-01",
    "value":10
  },
