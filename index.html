@@ -78,7 +78,7 @@ var max = d3.max(dataset, function(d) { return +d.value;} );
 
 var xScale = d3.scale.ordinal()
         .domain(d3.range(dataset.length+1))
-        .rangeRoundBands([0, 700], 0.05); 
+        .rangeRoundBands([10, 700], 0.05); //
 var hScale = d3.scale.ordinal()
         .domain(d3.range(end+1,start,-1))
         .rangeRoundBands([0, w], 0.05);       
