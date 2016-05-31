@@ -64,7 +64,7 @@ var xAxis = d3.svg.axis()
     .tickFormat(formatDate);
 
 var nest = d3.nest()
-    .key(function(d) { return d.group; });
+    .key(function(d) { return d.cat; });
 
 var stack = d3.layout.stack()
     .values(function(d) { return d.values; })
