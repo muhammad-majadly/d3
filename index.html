@@ -17,7 +17,7 @@
 
 var w = 1400;
 var h = 750;
-var margin = 10;
+var margin = 20;
       d3.json("data2.json", function (error,data) {
         if(error){
           console.log("Error loading data")
@@ -88,7 +88,7 @@ var yScale = d3.scale.linear()
                      .domain([0, max+5])
                      .range([h-margin*1.8, 0]);
         
-var x_axis = d3.svg.axis().scale(hScale).ticks(5);
+var x_axis = d3.svg.axis().scale(hScale).ticks(2);
 
 
        
