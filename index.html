@@ -75,10 +75,11 @@ var max = d3.max(dataset, function(d) { return +d.value;} );
 
 
 
+///// the histogram
 
 var xScale = d3.scale.ordinal()
         .domain(d3.range(dataset.length+1))
-        .rangeRoundBands([80, 980], 0.3); //
+        .rangeRoundBands([80, 980], 0.3); 
 var hScale = d3.scale.ordinal()
         .domain(d3.range(end,start-1,-1))
         .rangeRoundBands([80, 880], 0.2);       
@@ -86,18 +87,18 @@ var hScale = d3.scale.ordinal()
 
 var yScale = d3.scale.linear()
                      .domain([0, max+5])
-                     .range([500, 200]);
+                     .range([500, 100]);
         
 var x_axis = d3.svg.axis().scale(hScale).ticks(5);
 
-
+/////
        
 var y_axis = d3.svg.axis().scale(yScale).orient("left");
 
 d3.select("svg")
   .append("g")
     .attr("class","x axis")
-    .attr("transform","translate(0,"+(100)+")")
+    .attr("transform","translate(0,"+(100)+")")//the years
   .call(x_axis)
   .selectAll("text")
     .attr("y", 0)
