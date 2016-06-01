@@ -87,7 +87,7 @@ var hScale = d3.scale.ordinal()
 
 var yScale = d3.scale.linear()
                      .domain([0, max+5])
-                     .range([500, 400]);
+                     .range([500, 40]);
         
 var x_axis = d3.svg.axis().scale(hScale).ticks(5);
 
@@ -98,7 +98,7 @@ var y_axis = d3.svg.axis().scale(yScale).orient("left");
 d3.select("svg")
   .append("g")
     .attr("class","x axis")
-    .attr("transform","translate(0,"+(100)+")")//the years
+    .attr("transform","translate(0,"+(30)+")")//the years
   .call(x_axis)
   .selectAll("text")
     .attr("y", 0)
