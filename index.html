@@ -15,9 +15,9 @@
 
 <script type="text/javascript">
 
-var w = 1400;
+var w = 1100;
 var h = 750;
-var margin = 20;
+var margin = 25;
       d3.json("data2.json", function (error,data) {
         if(error){
           console.log("Error loading data")
@@ -78,10 +78,10 @@ var max = d3.max(dataset, function(d) { return +d.value;} );
 
 var xScale = d3.scale.ordinal()
         .domain(d3.range(dataset.length+1))
-        .rangeRoundBands([180, 1200], 0.2); //
+        .rangeRoundBands([120, 1200], 0.2); //
 var hScale = d3.scale.ordinal()
         .domain(d3.range(end,start-1,-1))
-        .rangeRoundBands([180, 1100], 0.2);       
+        .rangeRoundBands([120, 1100], 0.2);       
 
 
 var yScale = d3.scale.linear()
