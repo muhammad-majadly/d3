@@ -1,3 +1,21 @@
+.blue-button {
+    background: url(Comverse-ref/source/img/btnArrow.png) right 15px center no-repeat, linear-gradient(to bottom, #2e94c8 , #1188c4);
+    height: 36px;
+    width: 180px;
+    padding: 10px;
+    border: none;
+    text-align: left;
+    border-radius: 6px;
+    color: white;
+    box-shadow: 0 1px 3px 0 grey;
+    margin: 20px 0 20px 0;
+}
+
+
+
+
+
+
 svg {
 	background-color: #d6e0f5;
 	margin-left: auto;
