@@ -80,7 +80,7 @@ var xScale = d3.scale.ordinal()
         .domain(d3.range(dataset.length+1))
         .rangeRoundBands([200, 1200], 0.2); //
 var hScale = d3.scale.ordinal()
-        .domain(d3.range(end,start,-1))
+        .domain(d3.range(end,start-1,-1))
         .rangeRoundBands([175, 1000], 0.05);       
 
 
