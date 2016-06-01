@@ -85,8 +85,8 @@ var hScale = d3.scale.ordinal()
 
 
 var yScale = d3.scale.linear()
-                     .domain([0, max+5])
-                     .range([h-margin, 150]);
+                     .domain([100, max+5])
+                     .range([h-margin*1, 150]);
         
 var x_axis = d3.svg.axis().scale(hScale).ticks(5);
 
