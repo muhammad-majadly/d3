@@ -21,7 +21,7 @@
 var w = 980;
 var h = 430;
 var margin = 25;
-      d3.json("data2.json", function (error,data) {
+      d3.json("data111.json", function (error,data) {
         if(error){
           console.log("Error loading data")
         }
@@ -33,8 +33,8 @@ var data = data;
 
  //make Key from 1908 to 2009 -- for now it's till 1949
 var dataset = [];
-var start = 2010;
-var end = 2016
+var start = 1962;
+var end = 2010
 var len = end-start;
 for (var i = start; i <= end; i++) {
     dataset.push({
