@@ -54,9 +54,9 @@ var aboard = data.Aboard[i];
 var IntAboard = parseInt(aboard);
 var fatalities = data.Fatalities[i];
 var IntFatalities = parseInt(fatalities);
-dataset[end-IntYear].value +=1;
-dataset[end-IntYear].aboard +=IntAboard;
-dataset[end-IntYear].fatalities +=IntFatalities;
+dataset[end-IntYear-60].value +=1;
+dataset[end-IntYear-60].aboard +=IntAboard;
+dataset[end-IntYear-60].fatalities +=IntFatalities;
 
 }
 
