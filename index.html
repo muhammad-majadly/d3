@@ -179,22 +179,21 @@ svg.selectAll("text")
 
 })   
 
-
-	var data1 =[30,50,80];
-	var r= 200;
+var data1 =[30,50,80];
+	var r= 100;
 	var color = d3.scale.ordinal()
 		.range(["red","blue","orange"]);
 
 	var canvas = d3.select("body")
 		.append("svg")
-		.attr("width",500)
-		.attr("height",500);
+		.attr("width",200)
+		.attr("height",200);
 
 	var group=canvas.append("g")
-		.attr("transform","translate(300,300)");
+		.attr("transform","translate(100,100)");
 
 	var arc = d3.svg.arc()
-		.innerRadius(100)
+		.innerRadius(50)
 		.outerRadius(r);
 
 	var pie = d3.layout.pie()
@@ -215,6 +214,8 @@ svg.selectAll("text")
 		.attr("text-anchor", "middle")
 		.attr("font-size", "1.5em")
 		.text(function(d){return d.data;});
+						
+
 </script>
 </body>
 </html>
