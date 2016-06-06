@@ -37,7 +37,7 @@ var dataset = [];
 var start = 1968;
 var end = 2009
 var len = end-start;
-for (var i = start; i <= end; i++) {
+for (var i = 0; i <= end-start; i++) {
     dataset.push({
         key: i,
         value:0,
@@ -46,7 +46,7 @@ for (var i = start; i <= end; i++) {
     });
 }
 
-for (var i = 0; i < data.Date.length-61; i++) {
+for (var i = 0; i < data.Date.length; i++) {
  
 var year = data.Date[i].substr(data.Date[i].length - 4);
 var IntYear = parseInt(year);
