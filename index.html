@@ -12,7 +12,11 @@
 
 <body>
 <br><br>
-<section class"his"></section>
+<div id="area1"></div>
+<div id="area2"></div>
+
+
+
 <script type="text/javascript">
 
 var w = 980;
@@ -67,7 +71,7 @@ var value = function(d) {
 console.log(dataset);
  
 //Create SVG element
-var svg = d3.select("body")
+var svg = d3.select("#area1")
       .append("svg")
       .attr("width", w)
       .attr("height", h);
@@ -184,7 +188,7 @@ var data1 =[30,50,80];
 	var color = d3.scale.ordinal()
 		.range(["red","blue","orange"]);
 
-	var canvas = d3.select("body")
+	var canvas = d3.select("#area2")
 		.append("svg")
 		.attr("width",200)
 		.attr("height",200);
