@@ -28,6 +28,8 @@ svg {
 #area1{
     border-style: double;
     border-color: black;
+     width: 77%;
+    float: right;
 }
 #area2{
   float: left;
