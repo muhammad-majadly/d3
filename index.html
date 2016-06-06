@@ -87,7 +87,7 @@ var max = d3.max(dataset, function(d) { return +d.value;} );
 
 var xScale = d3.scale.ordinal()
         .domain(d3.range(dataset.length+1))
-        .rangeRoundBands([(w*0.8),0], 0.1); 
+        .rangeRoundBands([(w*0.4),0], 0.1); 
 var hScale = d3.scale.ordinal()
         .domain(d3.range(end+1,start,-5))
         .rangeRoundBands([w,5], 0.1);       
@@ -95,7 +95,7 @@ var hScale = d3.scale.ordinal()
 
 var yScale = d3.scale.linear()
                      .domain([0, max+5])
-                     .range([h-margin*1.8, 0]);
+                     .range([h-margin*1.3, 0]);
        
 var x_axis = d3.svg.axis().scale(hScale);
 
