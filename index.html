@@ -105,7 +105,7 @@ var x_axis = d3.svg.axis().scale(hScale);
 var y_axis = d3.svg.axis().scale(yScale).orient("left");
 
 d3.select("svg")
-  .append("g")
+ /* .append("g")
     .attr("class","x axis")
     .attr("transform","translate(0,"+(h-margin)+")")
   .call(x_axis)
@@ -114,7 +114,7 @@ d3.select("svg")
     .attr("x", 10)
     .attr("dy", ".5em")
     .attr("transform", "rotate(90)")
-    .style("text-anchor", "start");
+    .style("text-anchor", "start");*/
     
 //creat tip
 var tip = d3.tip()
@@ -145,11 +145,11 @@ d3.select("svg")
 
 
 //Create bars
-/*svg.selectAll("rect")
+svg.selectAll("rect")
    .data(dataset, key)
    .enter()
    .append("rect")
-    .attr("transform","translate("+-25+",0)")
+   .attr("transform","translate("+-25+",0)")
    .attr("x", function(d, i) {
     return xScale(i);
    })
@@ -169,7 +169,7 @@ d3.select("svg")
     }, 1000);
   
      return "rgb("+ (250-(d.value  *2))+", 30, 40)";
-   })*/
+   })
    // .duration(1000);
    
 
