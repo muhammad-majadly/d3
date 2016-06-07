@@ -29,7 +29,7 @@ svg {
     border-style: double;
     border-color: black;
      width: 33%;
-     height: 340px;
+     height: 386px;
     float: left;
      margin-top: 70px;
 
@@ -38,12 +38,21 @@ svg {
     border-style: double;
     border-color: black;
      width: 33%;
-     height: 340px;
+     height: 386px;
     float: left;
     margin-top: 70px;
 
 }
 #area2{
+
+}
+.title
+{
+  margin-left: 0px;
+  margin-bottom: 30px;
+  text-align: center;
+    vertical-align: middle;
+
 
 }
 .firstP{
