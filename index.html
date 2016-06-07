@@ -477,10 +477,10 @@ function func3(data1)
 	//var data1 =[30,80];
 
 
-	if(document.getElementById("#area2").style.display == "none")
-	{
+	document.getElementById("#area2").style.display = "none";
+	
 	    document.getElementById("#area2").style.display = "block"; 
-	}
+	
 
 	var r= 70;
 	var color = d3.scale.ordinal()
