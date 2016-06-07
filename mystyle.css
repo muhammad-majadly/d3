@@ -30,7 +30,9 @@ svg {
     border-color: black;
      width: 33%;
      height: 335px;
-    float: right;
+    float: left;
+     margin-top: 70px;
+
 }
 #area3{
     border-style: double;
@@ -38,6 +40,8 @@ svg {
      width: 33%;
      height: 335px;
     float: left;
+    margin-top: 70px;
+
 }
 #area2{
 
