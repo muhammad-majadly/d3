@@ -489,7 +489,7 @@ function func3(data1)
 
 	var r= 70;
 	var color = d3.scale.ordinal()
-		.range(["rgb(237, 130, 40)","#4db8ff"]);
+		.range(["rgb(237, 130, 40)","#E23F3F"]);
 
 	var canvas = d3.select("#area2")
 		.append("svg")
@@ -519,7 +519,7 @@ function func3(data1)
 	arcs.append("text")
 		.attr("transform", function(d){return "translate(" + arc.centroid(d) + ")"})
 		.attr("text-anchor", "middle")
-		.attr("font-size", "1.5em")
+		.attr("font-size", ".8em")
 		.text(function(d){return d.data;});
 
 }
