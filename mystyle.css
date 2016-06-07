@@ -12,7 +12,9 @@
 }
 
 
-
+body{
+  font-family:sans-serif;
+}
 
 
 
@@ -49,9 +51,11 @@ svg {
 .title
 {
   margin-left: 0px;
-  margin-bottom: 30px;
+   margin-bottom: 8px;
+   margin-top: 10px;
   text-align: center;
-    vertical-align: middle;
+  vertical-align: middle;
+  font-size: 17px;
 
 
 }
