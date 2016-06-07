@@ -471,20 +471,20 @@ svg.selectAll("rect")
 function func3()
 {
 var data1 =[30,80];
-	var r= 100;
+	var r= 70;
 	var color = d3.scale.ordinal()
 		.range(["rgb(237, 130, 40)","#4db8ff"]);
 
 	var canvas = d3.select("#area2")
 		.append("svg")
-		.attr("width",200)
-		.attr("height",200);
+		.attr("width",150)
+		.attr("height",150);
 
 	var group=canvas.append("g")
-		.attr("transform","translate(100,100)");
+		.attr("transform","translate(75,75)");
 
 	var arc = d3.svg.arc()
-		.innerRadius(50)
+		.innerRadius(40)
 		.outerRadius(r);
 
 	var pie = d3.layout.pie()
