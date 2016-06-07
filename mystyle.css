@@ -32,6 +32,13 @@ svg {
      height: 335px;
     float: right;
 }
+#area3{
+    border-style: double;
+    border-color: black;
+     width: 40%;
+     height: 335px;
+    float: left;
+}
 #area2{
   float: left;
 }
