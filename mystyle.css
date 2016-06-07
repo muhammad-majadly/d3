@@ -28,19 +28,19 @@ svg {
 #area1{
     border-style: double;
     border-color: black;
-     width: 40%;
+     width: 33%;
      height: 335px;
     float: right;
 }
 #area3{
     border-style: double;
     border-color: black;
-     width: 40%;
+     width: 33%;
      height: 335px;
     float: left;
 }
 #area2{
-  float: left;
+
 }
 
 .axis path,
