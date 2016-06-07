@@ -137,8 +137,10 @@ d3.select("svg")
     .style("text-anchor", "start");*/
     
 //creat tip
-
-
+var tip = d3.tip()
+ // .attr('class', 'd3-tip')
+  //.offset([-10, 0])
+  .html(function(d) {
    
    func3([d.value,d.aboard]);
    /* return "<strong>Year :</strong> <span style='color:red'>" + (end-d.key+start+1)  + "</span>"
@@ -149,7 +151,7 @@ d3.select("svg")
 */
     
 
-
+  })
 
 d3.select("svg")
   .append("g")
