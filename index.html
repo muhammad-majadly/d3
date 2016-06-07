@@ -311,7 +311,7 @@ var svg = d3.select("#area3")
       .append("svg")
       .attr("width", w)
       .attr("height", h);
-var max = d3.max(dataset, function(d) { return +d.fatalities;} );
+var max = d3.max(dataset, function(d) { return + d.fatalities;} );
 
 
 
@@ -326,7 +326,7 @@ var hScale = d3.scale.ordinal()
 
 var yScale = d3.scale.linear()
                      .domain([0, max+5])
-                     .range([h-25-margin*0.9, 10]);
+                     .range([10, 0]);
        
 var x_axis = d3.svg.axis().scale(hScale);
 
