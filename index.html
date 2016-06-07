@@ -476,7 +476,7 @@ function func3(data1)
 {
 	//var data1 =[30,80];
 
-		document.getElementById("area2").style.display = "none";
+	d3.select("#area2").remove();
 
 	var r= 70;
 	var color = d3.scale.ordinal()
@@ -513,7 +513,7 @@ function func3(data1)
 		.attr("font-size", "1.5em")
 		.text(function(d){return d.data;});
 
-		document.getElementById("area2").style.display = "block";
+
 	}
 	
 	function func4()
