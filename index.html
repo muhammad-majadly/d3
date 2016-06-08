@@ -498,7 +498,8 @@ function func3(data2)
 	var color = d3.scale.ordinal()
 		.range(["#E23F3F","#4db8ff"]);
 
-	var canvas = d3.selectAll("#area2")
+	//var canvas = d3.select("#area2")
+	var canvas = d3.select("g#area2").selectAll("path");
 		.append("svg")
 		.attr("width",300)
 		.attr("height",300);
