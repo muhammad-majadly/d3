@@ -144,8 +144,8 @@ var tip = d3.tip()
   .html(function(d) {
 
   
-   func3([d.fatalities,d.aboard]);
-   
+   func3([d.fatalities,d.aboard,year]);
+
    /* return "<strong>Year :</strong> <span style='color:red'>" + (end-d.key+start+1)  + "</span>"
     +"<br>" +"<strong>Planes Crashed:</strong> <span style='color:red'>" + d.value  + "</span>"
     +"<br>" + "<strong>Total Aboard:</strong> <span style='color:red'>" + d.aboard  + "</span>"
@@ -523,6 +523,12 @@ function func3(data1)
 		.attr("text-anchor", "middle")
 		.attr("font-size", ".8em")
 		.text(function(d){return d.data;});
+
+		arcs.append("text")
+		.attr("transform", function(d){return "translate(" + arc.centroid(d) +"-45"+ ")"})
+		.attr("text-anchor", "middle")
+		.attr("font-size", "1.5em")
+		.text(function(d){return d.data;});		
 
 }
 	
