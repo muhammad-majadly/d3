@@ -142,7 +142,8 @@ var tip = d3.tip()
  // .attr('class', 'd3-tip')
   //.offset([-10, 0])
   .html(function(d) {
-   
+
+   	d3.select("#area2").remove();
    func3([d.fatalities,d.aboard]);
    /* return "<strong>Year :</strong> <span style='color:red'>" + (end-d.key+start+1)  + "</span>"
     +"<br>" +"<strong>Planes Crashed:</strong> <span style='color:red'>" + d.value  + "</span>"
@@ -486,7 +487,6 @@ function func3(data1)
 	{
 	    document.getElementById("#area2").style.display = "none"; 
 	}*/
-	d3.select("#area2").remove();
 
 	var r= 70;
 	var color = d3.scale.ordinal()
