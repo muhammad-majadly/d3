@@ -492,20 +492,20 @@ function func3(data2)
 	}*/
 
 	var data1=[data2[0],data2[1]];
-	var r= 70;
+	var r= 150;
 	var color = d3.scale.ordinal()
 		.range(["#E23F3F","#4db8ff"]);
 
 	var canvas = d3.select("#area2")
 		.append("svg")
-		.attr("width",150)
-		.attr("height",150);
+		.attr("width",300)
+		.attr("height",300);
 
 	var group=canvas.append("g")
-		.attr("transform","translate(75,75)");
+		.attr("transform","translate(150,150)");
 
 	var arc = d3.svg.arc()
-		.innerRadius(40)
+		.innerRadius(90)
 		.outerRadius(r);
 
 	var pie = d3.layout.pie()

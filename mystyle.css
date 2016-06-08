@@ -28,25 +28,28 @@ svg {
 }
 
 
-#area1{
+#area1 {
     border-style: double;
     border-color: black;
-     width: 86%;
-     height: 386px;
+    width: 94%;
+    height: 386px;
     float: left;
-
+    margin-left: 33px;
 }
 #area3{
     border-style: double;
     border-color: black;
-     width: 86%;
-     height: 386px;
+    width: 94%;
+    height: 386px;
     float: left;
+    margin-left: 33px;
 
 }
-#area2{
-  float: right;
-}
+#area2 {
+    float: right;
+    margin-top: 80px;
+    width: 200px;
+  }
 #area4{
   float: right;
 }
