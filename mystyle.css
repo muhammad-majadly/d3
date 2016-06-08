@@ -47,8 +47,8 @@ svg {
 }
 #area2 {
     float: right;
-    margin-top: 80px;
-    width: 200px;
+    margin-top: 41px;
+    width: 313px;
   }
 #area4{
   float: right;
@@ -75,7 +75,7 @@ width: 100%;
 }
 .title2
 {
-  margin-left: 0px;
+  margin-left: 200px;
    margin-bottom: 8px;
    margin-top: 10px;
   text-align: center;
