@@ -525,6 +525,11 @@ function func3(data2)
 		.attr("font-size", ".8em")
 		.text(function(d){return d.data;});
 
+		var arcs =  group.selectAll(".arc")
+		.data(pie(data2[2]))
+		.enter()
+		.append("g")
+
 		arcs.append("text")
 		.attr("transform", function(d){return "translate(" + arc.centroid(d) +"-45"+ ")"})
 		.attr("text-anchor", "middle")
