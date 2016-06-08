@@ -500,6 +500,7 @@ function func3(data2)
 
 	var canvas = d3.select("#area2")
 		.append("svg")
+		.enter().append("g")
 		.attr("width",300)
 		.attr("height",300);
 
