@@ -197,7 +197,7 @@ var hScale = d3.scale.ordinal()
 
 var yScale = d3.scale.linear()
                      .domain([0, max+5])
-                     .range([h-25-margin*0.9, 0]);
+                     .range([h-25-margin, 0]);
        
 var x_axis = d3.svg.axis().scale(hScale);
 
@@ -215,7 +215,7 @@ d3.select("#area1").select("svg")
 d3.select("#area1").select("svg")
   .append("text")
     .attr("y", 5)
-    .attr("x", -5)
+    .attr("x", -10)
     .attr("dy", ".71em")
     .style("text-anchor", "end")
     .text("Crahses")
