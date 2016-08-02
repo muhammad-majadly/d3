@@ -197,7 +197,7 @@ var hScale = d3.scale.ordinal()
 
 var yScale = d3.scale.linear()
                      .domain([0, max+5])
-                     .range([h-25-margin, 0]);
+                     .range([h-25-margin*2, 0]);
        
 var x_axis = d3.svg.axis().scale(hScale);
 
