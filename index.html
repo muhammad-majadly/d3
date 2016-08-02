@@ -1,54 +1,129 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Airplanes Crashes Statistics</title>
-	<script type="text/javascript" src="http://d3js.org/d3.v2.js"></script>
-	<script src="http://d3js.org/d3.v3.min.js"> </script>
-  <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
-	<link rel="stylesheet" type="text/css" href="mystyle.css">
 
 
+  
+<script type="text/javascript" src="http://d3js.org/d3.v2.js"></script>
+ 
+   <script src="jquery-3.1.0.js"></script> 
+ <script src="http://d3js.org/d3.v3.min.js"> </script>
+  
+
+  
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
+  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+  
+	
+  
 </head>
 <body>
-	<div class="title1">Airplanes Crashes Statistics</div>
-	<div class="main">
-		<div id="area1">
-			<div id="area2">
 
-			</div>
-			<div class="title2">crachs per year</div>
-		</div>
+
+  
+<div class="w3-display-container" style="margin-bottom:50px">
+  <img src="Plane-crash.jpg" style="width:100%">
+  <div class="w3-display-bottomleft w3-container w3-amber w3-hover-orange w3-hide-small"
+   style="bottom:10%;opacity:0.7;width:40%">
+  <h2><b>Airplanes Crashes<br>Statistics</b></h2>
+</div>
+</div>
+
+<div class="w3-row w3-container" style="margin:50px 0">
+<div class="w3-half w3-container">
+  <div class="w3-topbar w3-border-amber w3-padding-top" style="margin-right:0px">
+    <div class="title2">
+   <h2>Crashes Per Year</h2>
+    <p>Full stats about crashes for each year since 1952</p>
+    </div>
+     
+
+       <div id="area1">
+      
+      
+   
+     </div>
+      
+  </div>
+</div>
+
+<div class="w3-half w3-container">
+  <div class="w3-topbar w3-border-amber w3-padding-top">
+    <!-- <div id="area3"> -->
+      <!-- <div id="area4"></div>  -->
+  
+    
+    <h2>Fatilites Per Year</h2>
+    <p>Stats for fatilites per year (1952-2010) </p>
+    <div id="area2">
+        </div>
+       <ul class="legend">
+          <li><span class="blue"></span> Aboard</li>
+          <li><span class="red"></span> Fatilites</li>
+      </ul>
+</div>
+</div>
+
+
+ 
+
+
+</div>
+
+ <style>
+
+      #includedContent {
+          height: 100%;
+          width: 100%;
+      }
+      </style>
 		
-		<div id="area3">
-			<div id="area4"></div> 
-			<div class="title2">fatilites per year</div>
-		</div>
+		
+	<div id="includedContent"></div>
 
-	</div>
+
 			
-		<div id="area2"></div>
+	
 
 
 
 <script type="text/javascript">
+
 window.onLoad = func();
 function func(){
-	func1();
+
+  setTimeout(function(){
+   	func1();
+  }, 2000);
+  setTimeout(function(){
 	func2();
+  }, 2000);
 	//func3()
+   setTimeout(function(){
 	func3([581,891,2010]);
-	func4();
+   }, 2000);
+
+setTimeout(function(){
+load_home();
+ }, 2000);
 
 }
 function func1()
 {
-var w = 817;
-var h = 335;
+
+var w= document.getElementById("area1").offsetWidth;
+var h = document.getElementById("area1").offsetHeight;
+ 
+// var w = 817;
+// var h = 335;
 var margin = 20;
+
       d3.json("data111.json", function (error,data) {
         if(error){
-          console.log("Error loading data")
+          console.log("Error loading data"+ error)
         }
      
 
@@ -97,13 +172,16 @@ var key = function(d) {
 var value = function(d) {
   return d.value;
 };
-console.log(dataset);
+// console.log(dataset);
  
 //Create SVG element
 var svg = d3.select("#area1")
       .append("svg")
       .attr("width", w)
-      .attr("height", h);
+      .attr("height", h)
+    .append("g")
+    .attr("transform", "translate(" + 30 + "," + 0 + ")");
+
 var max = d3.max(dataset, function(d) { return +d.value;} );
 
 
@@ -128,47 +206,39 @@ var x_axis = d3.svg.axis().scale(hScale);
        
 var y_axis = d3.svg.axis().scale(yScale).orient("left");
 
-d3.select("svg")
- /* .append("g")
-    .attr("class","x axis")
-    .attr("transform","translate(0,"+(h-margin)+")")
-  .call(x_axis)
-  .selectAll("text")
-    .attr("y", 5)
-    .attr("x", 10)
-    .attr("dy", ".5em")
-    .attr("transform", "rotate(90)")
-    .style("text-anchor", "start");*/
-    
-//creat tip
-var tip = d3.tip()
- // .attr('class', 'd3-tip')
-  //.offset([-10, 0])
-  .html(function(d) {
 
-  
-   func3([d.fatalities,d.aboard,(end-d.key+start+1)]);
-
-   /* return "<strong>Year :</strong> <span style='color:red'>" + (end-d.key+start+1)  + "</span>"
-    +"<br>" +"<strong>Planes Crashed:</strong> <span style='color:red'>" + d.value  + "</span>"
-    +"<br>" + "<strong>Total Aboard:</strong> <span style='color:red'>" + d.aboard  + "</span>"
-     +"<br>" + "<strong>Total Fatalities:</strong> <span style='color:red'>" + d.fatalities  + "</span>";
-
-*/
-    
-
-  })
-
-d3.select("svg")
+d3.select("#area1").select("svg")
   .append("g")
-   // .attr("class","y axis")
-    //.attr("transform","translate("+margin*1.5+",0)")
-  //.call(y_axis);
+   .attr("class","y axis")
+    .attr("transform","translate("+40+",0)")
+  .call(y_axis);
+d3.select("#area1").select("svg")
+  .append("text")
+    .attr("y", 5)
+    .attr("x", -10)
+    .attr("dy", ".71em")
+    .style("text-anchor", "end")
+    .text("Crahses")
 
-  svg.call(tip);
+    .attr("transform", "rotate(-90)");
+
+d3.select("#area1").select("svg")
+  .append("g")
+   .attr("class","x axis")
+    .attr("transform", "translate("+20+"," + (h-30) + ")")
+  .call(x_axis);
+d3.select("#area1").select("svg")
+  .append("text")
+    .attr("x", w)
+   .attr("y", (h-10))
+    .attr("dy", ".71em")
+    .style("text-anchor", "end")
+    .text("Year");
+
+
 
  function drill(d, i) {
-        console.log(d.value); //data object
+        // console.log(d.value); //data object
     }
 
 
@@ -177,7 +247,7 @@ svg.selectAll("rect")
    .data(dataset, key)
    .enter()
    .append("rect")
-   .attr("transform","translate("+-25+",0)")
+    .attr("transform","translate("+-25+",0)")
    .attr("x", function(d, i) {
     return xScale(i);
    })
@@ -188,77 +258,38 @@ svg.selectAll("rect")
    .attr("height", function(d) {
     return (yScale(0) - yScale(d.value));
    })
-   .on('mouseover', tip.show)
-  .on('mouseout', tip.hide)
+   .on('mouseover', function(d) {  func3([d.fatalities,d.aboard,(end-d.key+start+1)]); })
+   // .on('mouseout', tip.hide)
    .on("click", drill)
    // .transition()
    .attr("fill", function(d) {
      setTimeout(function(){
     }, 1000);
   
-     return "rgb(237, 130, 40)"; 
+     return "rgb("+ (250-(d.value  ))+", 30, 40)";
    })
-   // .duration(1000);
    
 
 
-//line
-  // svg.selectAll("line")
-  //  .data(dataset, key)
-  //  .enter()
-  //  .append("line")
-  //     .attr("x", function(d) {
-  //           debugger;
-  //   return xScale(d.key);
-  //  })
-  //  .attr("y", function(d) {
-  //   debugger;
-  //   return yScale(d.fatalities/d.aboard);
-  //  })
-  //                        .attr("stroke-width", 2)
-  //                        .attr("stroke", "white");
-  //Tooltip
-  // .on("mouseover", function(d) {
-  //   //Get this bar's x/y values, then augment for the tooltip
-  //   var xPosition = parseFloat(d3.select(this).attr("x")) + xScale.rangeBand() / 2;
-  //   var yPosition = parseFloat(d3.select(this).attr("y")) + 14;
-    
-  //   //Update Tooltip Position & value
-  //   d3.select("#tooltip")
-  //     .style("left", xPosition + "px")
-  //     .style("top", yPosition + "px")
-  //     .select("#value")
-  //     .text(d.value);
-  //   d3.select("#tooltip").classed("hidden", false)
-  // })
-  // .on("mouseout", function() {
-  //   //Remove the tooltip
-  //   d3.select("#tooltip").classed("hidden", true);
-  // })  ;
 
-// //Create labels
-/*svg.selectAll("text")
+
+//line
+  svg.selectAll("line")
    .data(dataset, key)
    .enter()
-   .append("text")
-   .text(function(d) {
-    return d.value;
-   })
-   .attr("text-anchor", "middle")
-   .attr("x", function(d, i) {
-    return xScale(i) + xScale.rangeBand() / 2;
+   .append("line")
+      .attr("x", function(d) {
+            
+    return xScale(d.key);
    })
    .attr("y", function(d) {
-    return yScale(d.value) + 4;
+        return yScale(d.fatalities/d.aboard);
    })
-   .attr("font-family", "sans-serif") 
-   .attr("font-size", "4px")
-   .attr("fill", "white");*/
+                         .attr("stroke-width", 2)
+                         .attr("stroke", "white");
+  
 
-
-
-
-})  
+}) ; 
 }
 
 
@@ -318,7 +349,6 @@ var key = function(d) {
 var value = function(d) {
   return d.value;
 };
-console.log(dataset);
  
 //Create SVG element
 var svg = d3.select("#area3")
@@ -362,27 +392,27 @@ d3.select("svg")
     .style("text-anchor", "start");*/
     
 //creat tip
-var tip = d3.tip()
-  .attr('class', 'd3-tip')
-  .offset([-10, 0])
-  .html(function(d) {
+// var tip = d3.tip()
+//   .attr('class', 'd3-tip')
+//   .offset([-10, 0])
+//   .html(function(d) {
    
-    return "<strong>Year :</strong> <span style='color:red'>" + (end-d.key+start+1)  + "</span>"
-    +"<br>" +"<strong>Planes Crashed:</strong> <span style='color:red'>" + d.value  + "</span>"
-    +"<br>" + "<strong>Total Aboard:</strong> <span style='color:red'>" + d.aboard  + "</span>"
-     +"<br>" + "<strong>Total Fatalities:</strong> <span style='color:red'>" + d.fatalities  + "</span>";
+//     return "<strong>Year :</strong> <span style='color:red'>" + (end-d.key+start+1)  + "</span>"
+//     +"<br>" +"<strong>Planes Crashed:</strong> <span style='color:red'>" + d.value  + "</span>"
+//     +"<br>" + "<strong>Total Aboard:</strong> <span style='color:red'>" + d.aboard  + "</span>"
+//      +"<br>" + "<strong>Total Fatalities:</strong> <span style='color:red'>" + d.fatalities  + "</span>";
 
     
 
-  })
+//   })
 
-d3.select("svg")
-  .append("g")
-   // .attr("class","y axis")
-    //.attr("transform","translate("+margin*1.5+",0)")
-  //.call(y_axis);
+// d3.select("svg")
+//   .append("g")
+//    // .attr("class","y axis")
+//     //.attr("transform","translate("+margin*1.5+",0)")
+//   //.call(y_axis);
 
-  svg.call(tip);
+//   svg.call(tip);
 
  function drill(d, i) {
         console.log(d.value); //data object
@@ -405,8 +435,8 @@ svg.selectAll("rect")
    .attr("height", function(d) {
     return (yScale(0) - yScale(d.value));
    })
-   .on('mouseover', tip.show)
-  .on('mouseout', tip.hide)
+    .on('mouseover', function(d) {  func3([d.fatalities,d.aboard,(end-d.key+start+1)]); })
+  // .on('mouseout', tip.hide)
    .on("click", drill)
    // .transition()
    .attr("fill", function(d) {
@@ -480,17 +510,7 @@ svg.selectAll("rect")
 
 function func3(data2)
 {
-	//var data1 =[30,80];
 	
-	/*	if(document.getElementById("#area2").style.display == "none")
-	{
-	    document.getElementById("#area2").style.display = "block"; 
-	}
-
-		if(document.getElementById("#area2").style.display == "block")
-	{
-	    document.getElementById("#area2").style.display = "none"; 
-	}*/
 
 
 	var data1=[data2[0],data2[1]];
@@ -526,60 +546,40 @@ var canvas = d3.select("#area2")
 	.attr("fill", function(d){return color(d.data);});
 
 	arcs.append("text")
-		.attr("transform", function(d){return "translate(" + arc.centroid(d) + ")"})
+	 .attr("transform", function(d){return "translate(" + arc.centroid(d) + ")"})
 		.attr("text-anchor", "middle")
 		.attr("font-size", ".8em")
 		.text(function(d){return d.data;});
 
+ arcs.append("text")
+    // .attr("transform", function(d){return "translate(" + arc.centroid(d+50) + ")"})
+    .attr("text-anchor", "middle")
+    .attr("font-size", ".8em")
+    .text(function(d){return data2[2];}); 
 
-		arcs.append("text")
-		.attr("transform", function(d){return "translate(" + arc.centroid(d) +"315"+ ")"})
-		.attr("text-anchor", "middle")
-		.attr("font-size", "1.5em")
-		.text(function(d){return data2[2];});		
+	
+	
 
 }
 	
-	function func4()
-{
-var data1 =[30,80];
-	var r= 70;
-	var color = d3.scale.ordinal()
-		.range(["rgb(237, 130, 40)","#4db8ff"]);
 
-	var canvas = d3.select("#area4")
-		.append("svg")
-		.attr("width",150)
-		.attr("height",150);
-
-	var group=canvas.append("g")
-		.attr("transform","translate(75,75)");
-
-	var arc = d3.svg.arc()
-		.innerRadius(40)
-		.outerRadius(r);
-
-	var pie = d3.layout.pie()
-		.value(function(d){return d;});
-
-	var arcs =  group.selectAll(".arc")
-		.data(pie(data1))
-		.enter()
-		.append("g")
-		.attr("class","arc");
-
-	arcs.append("path")
-	.attr("d",arc)
-	.attr("fill", function(d){return color(d.data);});
-
-	arcs.append("text")
-		.attr("transform", function(d){return "translate(" + arc.centroid(d) + ")"})
-		.attr("text-anchor", "middle")
-		.attr("font-size", ".5em")
-		.text(function(d){return d.data;});
-	}
 											
 
 </script>
+
+ <!--script> 
+    $(function(){
+      $("#includedContent").load("Map2.html"); 
+    });
+    </script--> 
+
+<script type="text/javascript">
+  function load_home(){
+document.getElementById("includedContent").innerHTML='<object  width="100%" height="1000" type="text/html" data="Map3.html" ></object>';
+}
+
+</script>
+
+
 </body>
 </html>
